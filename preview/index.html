@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>組合員活動カレンダー｜2026年11月｜自然派くらぶ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#FAF4E7;
+  --bg-soft:#F3EAD3;
+  --surface:#FFFDF7;
+  --surface-2:#FFF8EA;
+  --ink:#33261A;
+  --ink-2:#5C4A38;
+  --muted:#7A6A58;
+  --line:#E3D5B8;
+  --line-strong:#CBB98F;
+  --brand:#79472B;
+  --brand-dark:#5E351E;
+  --brand-ink:#FFF7E8;
+  --accent:#5A7A4F;
+  --accent-dark:#46603D;
+  --accent-soft:#E4EDDC;
+  --tomato:#C94F3D;
+  --tomato-soft:#F9E3DC;
+  --amber:#9A6B1F;
+  --amber-soft:#F6E8C8;
+  --gray:#6E675E;
+  --gray-soft:#EAE4D8;
+  --shadow:0 10px 28px rgba(94,53,30,.12);
+  --shadow-sm:0 2px 10px rgba(94,53,30,.08);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#211912;
+    --bg-soft:#2A2016;
+    --surface:#2E241A;
+    --surface-2:#342A1E;
+    --ink:#F4EBD8;
+    --ink-2:#D9C9AE;
+    --muted:#B8A78C;
+    --line:#4A3A28;
+    --line-strong:#66513A;
+    --brand:#8A5A38;
+    --brand-dark:#6E4527;
+    --brand-ink:#FFF7E8;
+    --accent:#8FB07E;
+    --accent-dark:#A8C698;
+    --accent-soft:#33402B;
+    --tomato:#E08A7A;
+    --tomato-soft:#4A2E28;
+    --amber:#D9B36A;
+    --amber-soft:#443A22;
+    --gray:#B4AA99;
+    --gray-soft:#3B332A;
+    --shadow:0 10px 28px rgba(0,0,0,.4);
+    --shadow-sm:0 2px 10px rgba(0,0,0,.3);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-size:16.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent-dark)}
+button{font:inherit}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 56px}
+
+/* ---------- header band ---------- */
+.band{
+  background:var(--brand);
+  color:var(--brand-ink);
+  border-bottom:6px solid var(--tomato);
+}
+.band-in{max-width:880px;margin:0 auto;padding:26px 16px 22px}
+.org{font-size:13.5px;font-weight:700;letter-spacing:.12em;opacity:.92;margin:0 0 6px}
+.band h1{
+  font-family:"Shippori Mincho",serif;
+  font-size:clamp(28px,6vw,40px);
+  line-height:1.25;margin:0 0 8px;font-weight:800;
+}
+.band .sub{margin:0;font-size:15.5px;opacity:.95}
+.fixed-line{display:block;white-space:nowrap}
+.guide-line{font-size:14px;letter-spacing:0}
+.band .sub strong{background:rgba(255,247,232,.16);border:1px solid rgba(255,247,232,.35);border-radius:999px;padding:1px 10px;font-weight:700;white-space:nowrap}
+
+/* ---------- summary ---------- */
+.summary{
+  margin-top:18px;
+  background:var(--surface);
+  border:1.5px solid var(--line-strong);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  padding:18px 18px 14px;
+}
+.summary .today-line{font-size:14px;font-weight:700;color:var(--brand);letter-spacing:.04em;margin:0 0 4px}
+.summary h2{font-size:20px;line-height:1.45;margin:0 0 10px}
+.summary h2 .num{font-size:30px;color:var(--accent-dark);font-weight:900}
+.summary p{margin:0 0 12px;color:var(--ink-2);font-size:15.5px}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){.summary-grid{grid-template-columns:1fr}}
+.sum-box{border-radius:14px;padding:12px 14px;border:1px solid var(--line)}
+.sum-box.open{background:var(--accent-soft)}
+.sum-box.free{background:var(--surface-2)}
+.sum-box .big{font-size:26px;font-weight:900;line-height:1.2}
+.sum-box .lbl{font-size:14px;font-weight:700}
+.sum-box .note{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+.deadline-alert{
+  margin-top:12px;background:var(--amber-soft);border:1px solid var(--amber);
+  color:var(--ink);border-radius:12px;padding:10px 14px;font-size:15px;font-weight:700;
+}
+.deadline-alert .dot{color:var(--tomato)}
+
+/* ---------- month nav ---------- */
+.month-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px}
+.month-title{font-family:"Shippori Mincho",serif;font-size:22px;margin:0;text-align:center;flex:1}
+.month-btn{min-height:48px;border:1.5px solid var(--line-strong);background:var(--surface);color:var(--brand);border-radius:999px;padding:10px 16px;font-weight:800;font-size:15.5px;cursor:pointer;white-space:nowrap}
+.month-btn:disabled{opacity:.4;cursor:default}
+.month-btn:focus-visible{outline:3px solid var(--tomato);outline-offset:2px}
+
+/* ---------- view tabs ---------- */
+.viewtabs{display:flex;gap:8px;margin:22px 0 0;background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:5px}
+.viewtabs button{
+  flex:1;min-height:48px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);
+  font-weight:800;font-size:16.5px;cursor:pointer;padding:10px 8px;
+}
+.viewtabs button[aria-selected="true"]{background:var(--brand);color:var(--brand-ink);box-shadow:var(--shadow-sm)}
+.viewtabs button:focus-visible,.chip:focus-visible,.card-btn:focus-visible,.cal-cell:focus-visible{outline:3px solid var(--tomato);outline-offset:2px}
+
+/* ---------- filters ---------- */
+.filters{margin-top:18px}
+.filters .flabel{font-size:13.5px;font-weight:800;color:var(--muted);letter-spacing:.06em;margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  min-height:44px;border:1.5px solid var(--line-strong);background:var(--surface);color:var(--ink);
+  border-radius:999px;padding:8px 14px;font-size:15px;font-weight:700;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.chip .cnt{font-size:13px;background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:0 8px;line-height:1.7;font-weight:800}
+.chip[aria-pressed="true"]{background:var(--accent-dark);border-color:var(--accent-dark);color:#FFFDF7}
+.chip[aria-pressed="true"] .cnt{background:rgba(255,255,255,.22);border-color:transparent;color:#FFFDF7}
+@media (prefers-color-scheme: dark){.chip[aria-pressed="true"]{color:#1E2A18}}
+.orgrow{margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.orgrow label{font-size:14.5px;font-weight:800}
+.orgrow select{
+  min-height:48px;font:inherit;font-size:16px;font-weight:700;color:var(--ink);
+  background:var(--surface);border:1.5px solid var(--line-strong);border-radius:12px;padding:8px 12px;max-width:100%;
+}
+.result-line{margin:14px 2px 0;font-size:14.5px;color:var(--muted);font-weight:700}
+
+/* ---------- event cards ---------- */
+.list{margin-top:12px;display:flex;flex-direction:column;gap:12px}
+.card{
+  width:100%;text-align:left;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:16px 16px 14px;display:flex;gap:14px;box-shadow:var(--shadow-sm);color:var(--ink);
+}
+.card:active{transform:scale(.995)}
+.datebox{
+  flex:0 0 62px;text-align:center;border-right:1.5px dashed var(--line-strong);padding-right:12px;
+  display:flex;flex-direction:column;justify-content:flex-start;padding-top:2px;
+}
+.datebox .d{font-size:27px;font-weight:900;line-height:1.1}
+.datebox .m{font-size:12.5px;font-weight:800;color:var(--muted)}
+.datebox .w{font-size:14px;font-weight:800;margin-top:2px}
+.w-sun{color:var(--tomato)} .w-sat{color:#3E6FA8}
+@media (prefers-color-scheme: dark){.w-sat{color:#8FB4DE}}
+.datebox .today-badge{margin-top:6px;background:var(--tomato);color:#fff;font-size:11.5px;font-weight:900;border-radius:999px;padding:1px 6px}
+.card-main{flex:1;min-width:0}
+.card-top{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px}
+.org-pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;border:1px solid var(--line-strong);background:var(--surface-2);border-radius:999px;padding:2px 10px 2px 7px}
+.org-dot{width:11px;height:11px;border-radius:50%;flex:0 0 11px;border:1px solid rgba(0,0,0,.18)}
+.status-pill{font-size:13px;font-weight:900;border-radius:999px;padding:2px 10px}
+.st-open{background:var(--accent);color:#fff}
+.st-free{background:var(--surface-2);border:1.5px solid var(--accent);color:var(--accent-dark)}
+.st-limited{background:var(--gray-soft);color:var(--ink-2);border:1px solid var(--line-strong)}
+.st-closed,.st-ended{background:var(--gray-soft);color:var(--muted);border:1px solid var(--line)}
+@media (prefers-color-scheme: dark){.st-open{color:#16210F}}
+.card h3{font-size:18.5px;line-height:1.45;margin:0 0 8px;font-weight:800}
+.meta{display:flex;flex-direction:column;gap:4px;font-size:15px;color:var(--ink-2)}
+.meta .row{display:flex;gap:8px;align-items:flex-start}
+.meta svg{flex:0 0 18px;margin-top:3px;color:var(--brand)}
+.deadline-badge{
+  display:inline-flex;align-items:center;gap:6px;margin-top:10px;
+  background:var(--tomato-soft);border:1.5px solid var(--tomato);color:var(--ink);
+  font-size:14.5px;font-weight:900;border-radius:10px;padding:5px 11px;
+}
+.deadline-badge.muted{background:var(--gray-soft);border-color:var(--line-strong);color:var(--muted);font-weight:700}
+.card .go{flex:0 0 auto;align-self:center;color:var(--muted);font-size:22px;font-weight:700}
+.card.past{opacity:.78}
+.empty-box{
+  background:var(--surface);border:1.5px dashed var(--line-strong);border-radius:var(--radius);
+  padding:26px 18px;text-align:center;color:var(--ink-2);font-weight:700;
+}
+.past-toggle{
+  width:100%;min-height:52px;margin-top:16px;cursor:pointer;
+  background:var(--surface-2);border:1.5px solid var(--line-strong);border-radius:14px;
+  font-size:16px;font-weight:800;color:var(--brand);padding:12px;
+}
+.section-head{font-size:19px;margin:26px 0 4px;font-weight:900}
+.section-head:first-child{margin-top:18px}
+.section-note{margin:0 0 4px;color:var(--muted);font-size:14.5px}
+
+/* ---------- calendar ---------- */
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px}
+.cal-head h2{font-family:"Shippori Mincho",serif;font-size:24px;margin:0}
+.cal-note{font-size:14px;color:var(--muted);margin:4px 0 0}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:12px}
+.cal-dow{text-align:center;font-size:13.5px;font-weight:900;padding:6px 0;color:var(--ink-2)}
+.cal-cell{
+  min-height:64px;border:1.5px solid var(--line);background:var(--surface);border-radius:12px;
+  padding:5px 4px 6px;cursor:pointer;text-align:left;color:var(--ink);display:flex;flex-direction:column;gap:3px;width:100%;
+}
+.cal-cell.blank{background:transparent;border-color:transparent;cursor:default}
+.cal-cell .n{font-size:15px;font-weight:900;line-height:1.2;display:flex;align-items:center;gap:4px}
+.cal-cell .n .tb{background:var(--tomato);color:#fff;font-size:10.5px;border-radius:999px;padding:0 5px;font-weight:900}
+.cal-cell.today{border-color:var(--tomato);border-width:2px}
+.cal-cell.selected{border-color:var(--brand);border-width:2.5px;background:var(--surface-2);box-shadow:var(--shadow-sm)}
+.cal-chip{
+  font-size:10.5px;font-weight:800;line-height:1.35;border-radius:6px;padding:2px 4px;
+  border-left:5px solid var(--gray);background:var(--bg-soft);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.cal-chip.done{opacity:.55}
+.cal-dots{display:none;gap:4px;flex-wrap:wrap;margin-top:2px}
+.cal-dots i{width:9px;height:9px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.15)}
+@media (max-width:560px){
+  .cal-cell{min-height:56px;padding:4px 3px}
+  .cal-chip{display:none}
+  .cal-dots{display:flex}
+  .cal-cell .n{font-size:14px}
+}
+.legend{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.legend h3{font-size:14.5px;margin:0 0 8px;font-weight:900}
+.legend ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}
+.legend li{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700}
+.legend .org-dot{width:12px;height:12px;flex-basis:12px}
+.day-panel{margin-top:20px}
+.day-panel h3{font-size:19px;margin:0 0 4px;font-weight:900}
+
+/* ---------- footer ---------- */
+footer{
+  margin-top:40px;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:20px 18px;box-shadow:var(--shadow-sm);
+}
+footer h2{font-size:18px;margin:0 0 8px}
+footer p{margin:0 0 8px;color:var(--ink-2);font-size:15px}
+.tel-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;
+  background:var(--brand);color:var(--brand-ink);text-decoration:none;font-weight:900;font-size:18px;
+  border-radius:14px;padding:12px;margin:12px 0 6px;
+}
+.trial{margin-top:14px;font-size:13.5px;color:var(--muted);border-top:1px dashed var(--line-strong);padding-top:12px}
+
+/* ---------- bottom sheet ---------- */
+.overlay{
+  position:fixed;inset:0;background:rgba(30,18,8,.55);z-index:40;
+  opacity:0;pointer-events:none;transition:opacity .22s ease;
+}
+.overlay.show{opacity:1;pointer-events:auto}
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  max-width:880px;margin:0 auto;
+  background:var(--surface);color:var(--ink);
+  border-radius:24px 24px 0 0;box-shadow:var(--shadow);
+  transform:translateY(105%);transition:transform .28s ease;
+  max-height:88dvh;overflow-y:auto;padding:10px 20px calc(26px + env(safe-area-inset-bottom));
+}
+.sheet.show{transform:translateY(0)}
+@media (prefers-reduced-motion: reduce){
+  .sheet,.overlay{transition:none}
+  html{scroll-behavior:auto}
+}
+.sheet .handle{width:52px;height:5px;border-radius:999px;background:var(--line-strong);margin:4px auto 10px}
+.sheet-close{
+  position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;
+  border:1.5px solid var(--line-strong);background:var(--surface-2);color:var(--ink);
+  font-size:20px;font-weight:900;cursor:pointer;line-height:1;
+}
+.sheet .org-line{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 44px 6px 0}
+.sheet h2{font-size:23px;line-height:1.4;margin:0 0 10px;font-weight:900}
+.sheet .desc{margin:0 0 16px;color:var(--ink-2);font-size:16px}
+.detail-table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:15.5px}
+.detail-table th,.detail-table td{border-top:1px solid var(--line);padding:10px 6px;vertical-align:top;text-align:left}
+.detail-table th{width:92px;font-weight:900;color:var(--brand);white-space:nowrap}
+.detail-table tr:last-child th,.detail-table tr:last-child td{border-bottom:1px solid var(--line)}
+.sheet .note-box{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;color:var(--ink-2);margin:0 0 14px}
+.btn-primary,.btn-secondary,.btn-phone{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;
+  border-radius:14px;font-size:17.5px;font-weight:900;text-decoration:none;padding:13px 16px;text-align:center;
+}
+.btn-primary{background:var(--accent);color:#fff;border:0}
+@media (prefers-color-scheme: dark){.btn-primary{color:#16210F}}
+.btn-phone{background:var(--brand);color:var(--brand-ink)}
+.btn-secondary{background:var(--surface);color:var(--accent-dark);border:2px solid var(--accent)}
+.status-banner{
+  border-radius:12px;padding:12px 14px;font-weight:800;font-size:15.5px;margin:0 0 14px;text-align:center;
+  background:var(--gray-soft);color:var(--ink-2);border:1px solid var(--line-strong);
+}
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-in">
+    <p class="org">自然派くらぶ生活協同組合</p>
+    <h1>組合員活動カレンダー</h1>
+    <p class="sub"><strong id="bandMonth">2026年11月号</strong><span class="fixed-line guide-line">活動名をタップすると詳細と申込ボタンが出ます</span></p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 要約（読み込み時に実日付で動的生成） -->
+  <section class="summary" aria-label="今月のまとめ" id="summarySection">
+    <div id="summaryContent"></div>
+  </section>
+
+  <!-- 月の切り替え -->
+  <nav class="month-nav" aria-label="月の切り替え">
+    <button type="button" class="month-btn" id="prevMonthBtn">‹ 前の月</button>
+    <h2 class="month-title" id="monthTitle">2026年 11月</h2>
+    <button type="button" class="month-btn" id="nextMonthBtn">次の月 ›</button>
+  </nav>
+
+  <!-- 表示切替 -->
+  <div class="viewtabs" role="tablist" aria-label="表示の切り替え">
+    <button id="tab-list" role="tab" aria-selected="true" aria-controls="panel-list">📋 一覧で見る</button>
+    <button id="tab-cal" role="tab" aria-selected="false" aria-controls="panel-cal">📅 カレンダーで見る</button>
+  </div>
+
+  <!-- 一覧パネル -->
+  <section id="panel-list" role="tabpanel" aria-labelledby="tab-list">
+    <div class="filters">
+      <p class="flabel">申し込みの状態で絞り込む</p>
+      <div class="chips" id="chips" role="group" aria-label="状態の絞り込み"></div>
+      <div class="orgrow">
+        <label for="orgSelect">主催者で絞り込む</label>
+        <select id="orgSelect"></select>
+      </div>
+      <p class="result-line" id="resultLine" aria-live="polite"></p>
+    </div>
+
+    <div id="upcomingWrap">
+      <h2 class="section-head" id="upcomingHead">今日と、これからの活動</h2>
+      <p class="section-note" id="upcomingNote">タップすると詳細が開きます。</p>
+      <div class="list" id="upcomingList"></div>
+    </div>
+
+    <div id="filteredWrap" class="hidden">
+      <div class="list" id="filteredList"></div>
+    </div>
+
+    <div id="pastWrap">
+      <button class="past-toggle" id="pastToggle" aria-expanded="false">終了した活動を見る▽</button>
+      <div class="list hidden" id="pastList" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <!-- カレンダーパネル -->
+  <section id="panel-cal" role="tabpanel" aria-labelledby="tab-cal" class="hidden">
+    <div class="cal-head">
+      <h2 id="calMonthTitle">2026年 11月</h2>
+    </div>
+    <p class="cal-note">日付をタップすると、その日の活動が下に大きく表示されます。色は主催者を表し、名前も下の「主催者（色別）」で確認できます。</p>
+    <div class="cal-grid" id="calGrid" aria-label="2026年11月のカレンダー"></div>
+    <div class="legend" aria-label="主催者（色別）">
+      <h3>主催者（色別）</h3>
+      <ul id="legendList"></ul>
+    </div>
+    <div class="day-panel" id="dayPanel"></div>
+  </section>
+
+  <footer>
+    <h2>お申込み・お問い合わせ</h2>
+    <p>自然派くらぶ生協 新センター<br />〒192-0363 東京都八王子市別所2-62</p>
+    <a class="tel-btn" href="tel:0423169405">📞 電話する　042-316-9405</a>
+    <p>受付時間：月〜金 9:00〜17:00（土日休み）</p>
+    <p class="trial">試作版です。予定は変更になる場合があります。最新情報はこのページが正です。活動によっては、公式ホームページのイベントページからも申し込めます。</p>
+  </footer>
+</div>
+
+<!-- 詳細ボトムシート -->
+<div class="overlay" id="overlay"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" aria-hidden="true">
+  <div class="handle" aria-hidden="true"></div>
+  <button class="sheet-close" id="sheetClose" aria-label="閉じる">×</button>
+  <div id="sheetBody"></div>
+</div>
+
+<script>
+/* 実日付（閲覧端末の日付）。時刻は切り捨てて日単位で比較する */
+var _now = new Date();
+var TODAY_DATE = new Date(_now.getFullYear(), _now.getMonth(), _now.getDate());
+var TODAY = { y: TODAY_DATE.getFullYear(), m: TODAY_DATE.getMonth() + 1, d: TODAY_DATE.getDate() };
+var MONTHS = [
+  { y:2026, m:11 }, { y:2026, m:12 }, { y:2027, m:1 }, { y:2027, m:2 }, { y:2027, m:3 }
+];
+function monthKey(y, m){ return y + "-" + m; }
+function findInitialMonthIdx(){
+  var t = TODAY.y * 100 + TODAY.m;
+  var first = MONTHS[0].y * 100 + MONTHS[0].m;
+  var last = MONTHS[MONTHS.length - 1].y * 100 + MONTHS[MONTHS.length - 1].m;
+  if(t < first) return 0;
+  if(t > last) return MONTHS.length - 1;
+  for(var i = 0; i < MONTHS.length; i++){
+    if(MONTHS[i].y === TODAY.y && MONTHS[i].m === TODAY.m) return i;
+  }
+  return 0;
+}
+var curIdx = findInitialMonthIdx();
+function curY(){ return MONTHS[curIdx].y; }
+function curM(){ return MONTHS[curIdx].m; }
+function monthLabel(y, m){ return y + "年 " + m + "月"; }
+function curMonthLabel(){ return monthLabel(curY(), curM()); }
+function isTodayInCurMonth(){ return TODAY.y === curY() && TODAY.m === curM(); }
+var EVENT_LIST_URL = "https://www.shizenha-club.com/event/";
+var TEL_URL = "tel:0423169405";
+
+var ORGS = {
+  "nougyou":   { name: "食と農をつなぐ会", color: "#4A7C59" },
+  "club":      { name: "自然派くらぶ", color: "#C97A2E" },
+  "try":       { name: "わくわくTryのつどい", color: "#4A7AB5" },
+  "mama":      { name: "自然派ママくらぶ", color: "#9B3A4A" },
+  "niji":      { name: "虹の会", color: "#C05C7E" },
+  "kitchen":   { name: "なちゅらるきっちんず", color: "#2A7F7F" },
+  "hachioji":  { name: "八王子地区委員会", color: "#7A5A3A" },
+  "kome":      { name: "産直米を考える会", color: "#7A8A3A" }
+};
+
+var WD = ["日","月","火","水","木","金","土"];
+function wdOf(y, m, day){ return new Date(y, m - 1, day).getDay(); }
+function wdLabel(y, m, day){ return WD[wdOf(y, m, day)]; }
+function wdClass(y, m, day){ var w = wdOf(y, m, day); return w===0 ? "w-sun" : (w===6 ? "w-sat" : ""); }
+function dateOf(y, m, d){ return new Date(y, m - 1, d); }
+function daysUntil(y, m, d){ return Math.round((dateOf(y, m, d) - TODAY_DATE) / 86400000); }
+function eventDateObj(ev){ return new Date(ev.y, ev.m - 1, ev.day); }
+function deadlineDateObj(ev){ return ev.deadline ? dateOf(ev.deadline.y, ev.deadline.m, ev.deadline.d) : null; }
+/* 状態の自動判定（優先順位：開催終了 ＞ 対象者のみ／申込不要 ＞ 受付終了（締切経過） ＞ 受付中） */
+function computeStatus(ev){
+  var evDate = eventDateObj(ev);
+  if(TODAY_DATE > evDate) return "ended";
+  if(ev.kind === "limited") return "limited";
+  if(ev.kind === "free") return "free";
+  var dl = deadlineDateObj(ev);
+  if(dl && TODAY_DATE > dl) return "closed";
+  return "open";
+}
+function refreshStatuses(){
+  EVENTS.forEach(function(ev){ ev.status = computeStatus(ev); });
+}
+
+/* status: open=受付中 / free=申込不要 / limited=対象者のみ / closed=受付終了 / ended=開催終了
+   apply: page | phone | list | none */
+var EVENTS = [
+  { id:1, y:2026, m:11, day:3, title:"収穫祭", org:"nougyou", time:"時間は追ってお知らせ", venue:"小比企の畑（八王子市小比企町）", status:"ended", page:null, apply:"none",
+    desc:"小比企の畑で開かれる収穫祭です。" },
+  { id:2, y:2026, m:11, day:5, title:"自然派オープンカレッジ", org:"club", time:"10:00〜12:00", venue:"新センター", status:"ended", page:null, apply:"none",
+    desc:"よつ葉乳業について学ぶオープンカレッジです。" },
+  { id:3, y:2026, m:11, day:6, title:"もっちゅりん風ドーナツをつくろう！", org:"try", time:"10:00〜13:00", venue:"新センター", status:"ended",
+    page:"https://www.shizenha-club.com/news_post/areatry/", apply:"page",
+    desc:"もっちゅりん風ドーナツをみんなでつくります。" },
+  { id:4, y:2026, m:11, day:7, title:"さつま芋掘り", org:"mama", time:"10:00〜14:00", venue:"あきる野 こんにゃくトラストの畑", status:"ended", page:null, apply:"none",
+    desc:"あきる野の畑で、さつま芋掘りを楽しみます。" },
+  { id:5, y:2026, m:11, day:10, title:"畑活動", org:"nougyou", time:"時間は追ってお知らせ", venue:"畑", status:"open", page:null, apply:"list",
+    desc:"畑での作業を行う活動です。時間は追ってお知らせします。" },
+  { id:6, y:2026, m:11, day:10, title:"子ども食堂の現在", org:"niji", time:"10:00〜12:30", venue:"新センター／オンライン参加あり", status:"closed",
+    deadline:{ y:2026, m:11, d:5 }, page:"https://www.shizenha-club.com/news_post/nizinokaikouza/", apply:"page",
+    desc:"子ども食堂について学ぶ学習会です。新センターのほか、オンラインでも参加できます。" },
+  { id:7, y:2026, m:11, day:11, title:"パラマウント靴の相談販売会", org:"club", time:"10:30〜16:00", venue:"ソレイユさがみ", status:"open",
+    page:"https://www.shizenha-club.com/news_post/shoes/", apply:"page",
+    desc:"パラマウント靴の相談・販売会です。" },
+  { id:8, y:2026, m:11, day:14, title:"海と大地のつながりフェスタ", org:"club", time:"9:30〜14:00", venue:"鵠沼海岸", status:"closed",
+    deadline:{ y:2026, m:11, d:8 }, page:"https://www.shizenha-club.com/news_post/clean/", apply:"page",
+    fee:"大人 1,650〜2,200円／高校・大学生 1,100円／小中学生 550円／未就学児 無料",
+    belongings:"飲み物、作業用手袋、長靴、保冷袋かクーラーボックス",
+    desc:"鵠沼海岸で、ビーチクリーンと地引網、マルシェを行います。" },
+  { id:9, y:2026, m:11, day:17, title:"畑活動", org:"nougyou", time:"時間は追ってお知らせ", venue:"畑", status:"open", page:null, apply:"list",
+    desc:"畑での作業を行う活動です。時間は追ってお知らせします。" },
+  { id:10, y:2026, m:11, day:17, title:"地区総代会議", org:"club", time:"10:00〜13:00（予定）", venue:"クリエイトホール", status:"limited",
+    target:"総代の方", page:"https://www.shizenha-club.com/news_post/soudaikaigi/", apply:"none",
+    desc:"地区総代会議です。総代の方が対象です。" },
+  { id:11, y:2026, m:11, day:18, title:"地区総代会議", org:"club", time:"10:00〜13:00（予定）", venue:"ソレイユさがみ", status:"limited",
+    target:"総代の方", page:"https://www.shizenha-club.com/news_post/soudaikaigi/", apply:"none",
+    desc:"地区総代会議です。総代の方が対象です。" },
+  { id:12, y:2026, m:11, day:18, title:"なちゅらるきっちんず", org:"kitchen", time:"10:00〜14:30", venue:"新センター", status:"limited",
+    target:"メンバーの方", page:null, apply:"none",
+    desc:"商品の調理・試食・評価を行う活動です。メンバーの方が対象です。" },
+  { id:13, y:2026, m:11, day:19, title:"お茶べり会　小豆カイロを作ってみませんか？", org:"hachioji", time:"10:00〜13:00", venue:"新センター 組合員室", status:"closed",
+    deadline:{ y:2026, m:10, d:30 }, page:"https://www.shizenha-club.com/news_post/areahachioji/", apply:"page",
+    fee:"600円（当日現金）", capacity:"10名（多数の場合は抽選）",
+    belongings:"裁縫道具、30cm×10cmの布2枚、お弁当、布巾",
+    desc:"小豆カイロを手作りするお茶べり会です。" },
+  { id:14, y:2026, m:11, day:20, title:"こんにゃくつくり", org:"mama", time:"10:00〜14:00", venue:"新センター", status:"open", page:null, apply:"phone",
+    deadline:{ y:2026, m:11, d:13 },
+    desc:"こんにゃく芋から、3種類のこんにゃくを作ります。体験参加をご希望の方は、事前にご連絡ください。" },
+  { id:15, y:2026, m:11, day:23, title:"地区総代会議", org:"club", time:"10:00〜13:00（予定）", venue:"新センター／オンライン", status:"limited",
+    target:"総代の方", page:"https://www.shizenha-club.com/news_post/soudaikaigi/", apply:"none",
+    desc:"地区総代会議です。総代の方が対象です。" },
+  { id:16, y:2026, m:11, day:24, title:"畑活動", org:"nougyou", time:"9:00〜11:00", venue:"畑", status:"open", page:null, apply:"list",
+    desc:"畑での作業を行う活動です。" },
+  { id:17, y:2026, m:11, day:25, title:"なちゅらるきっちんず", org:"kitchen", time:"10:00〜14:30", venue:"新センター", status:"limited",
+    target:"メンバーの方", page:null, apply:"none",
+    desc:"商品の調理・試食・評価を行う活動です。メンバーの方が対象です。" },
+  { id:18, y:2026, m:11, day:27, title:"お米工場へ見学に行こう！", org:"kome", time:"10:00〜13:00", venue:"集合：中央線 西八王子駅改札（見学先：マゴメ工場）", status:"open",
+    deadline:{ y:2026, m:11, d:13 }, page:"https://www.shizenha-club.com/news_post/santyokumai/", apply:"page",
+    fee:"2,500円（ランチ代・当日集金）", capacity:"15名（多数の場合は抽選）",
+    target:"組合員でないお友達、お子さま連れ（小学生以上）も歓迎",
+    desc:"お米の工場（マゴメ工場）を見学します。組合員でないお友達や、お子さま連れ（小学生以上）も歓迎です。" },
+  { id:19, y:2026, m:11, day:28, title:"町田市市民協働フェスティバル「まちカフェ！」出店", org:"club", time:"10:00〜16:00", venue:"町田市役所", status:"free", page:null, apply:"none",
+    desc:"町田市市民協働フェスティバル「まちカフェ！」への出店です。申込は不要です。当日、町田市役所へお越しください。" }
+];
+
+/* 活動の種別（kind）を元の対象・申込不要の情報から決める：対象者限定と申込不要以外は受付型 */
+EVENTS.forEach(function(ev){
+  if(ev.id === 19){ ev.kind = "free"; }
+  else if(ev.target && (ev.target.indexOf("総代") !== -1 || ev.target.indexOf("メンバー") !== -1)){ ev.kind = "limited"; }
+  else if(ev.id === 10 || ev.id === 11 || ev.id === 12 || ev.id === 15 || ev.id === 17){ ev.kind = "limited"; }
+  else { ev.kind = "open"; }
+});
+refreshStatuses();
+
+var EVENTS_BY_KEY = {};
+EVENTS_BY_KEY[monthKey(2026, 11)] = EVENTS;
+var CUR_EVENTS = EVENTS_BY_KEY[monthKey(curY(), curM())] || [];
+
+var STATUS_LABEL = { open:"受付中", free:"申込不要", limited:"対象者のみ", closed:"受付終了", ended:"開催終了" };
+
+var ICON_CLOCK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+var ICON_PIN = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>';
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+function deadlineText(ev){
+  if(!ev.deadline) return "";
+  var dl = ev.deadline;
+  var wd = WD[new Date(dl.y, dl.m-1, dl.d).getDay()];
+  return "申込締切 " + dl.m + "/" + dl.d + "（" + wd + "）";
+}
+function deadlineBadge(ev){
+  if(!ev.deadline) return "";
+  var left = daysUntil(ev.deadline.y, ev.deadline.m, ev.deadline.d);
+  if(ev.status === "open"){
+    var suffix = left > 0 ? "・あと" + left + "日" : (left === 0 ? "・本日締切" : "");
+    return '<span class="deadline-badge">⏰ ' + esc(deadlineText(ev) + suffix) + "</span>";
+  }
+  return '<span class="deadline-badge muted">' + esc(deadlineText(ev)) + "</span>";
+}
+
+function cardHTML(ev){
+  var org = ORGS[ev.org];
+  var isToday = (TODAY.y === ev.y && TODAY.m === ev.m && TODAY.d === ev.day);
+  var pastCls = (ev.status === "ended") ? " past" : "";
+  var html = "";
+  html += '<button type="button" class="card' + pastCls + '" data-open="' + ev.id + '" aria-label="' + esc(ev.title) + 'の詳細を開く">';
+  html += '<span class="datebox"><span class="m">' + ev.m + '月</span><span class="d">' + ev.day + '</span><span class="w ' + wdClass(ev.y, ev.m, ev.day) + '">（' + wdLabel(ev.y, ev.m, ev.day) + '）</span>';
+  if(isToday) html += '<span class="today-badge">今日</span>';
+  html += "</span>";
+  html += '<span class="card-main">';
+  html += '<span class="card-top"><span class="org-pill"><span class="org-dot" style="background:' + org.color + '"></span>' + esc(org.name) + '</span>';
+  html += '<span class="status-pill st-' + ev.status + '">' + STATUS_LABEL[ev.status] + "</span></span>";
+  html += "<h3>" + esc(ev.title) + "</h3>";
+  html += '<span class="meta">';
+  html += '<span class="row">' + ICON_CLOCK + "<span>" + esc(ev.time) + "</span></span>";
+  html += '<span class="row">' + ICON_PIN + "<span>" + esc(ev.venue) + "</span></span>";
+  html += "</span>";
+  var db = deadlineBadge(ev);
+  if(db) html += db;
+  html += "</span>";
+  html += '<span class="go" aria-hidden="true">›</span>';
+  html += "</button>";
+  return html;
+}
+
+function renderCards(el, list){
+  if(list.length === 0){
+    el.innerHTML = '<div class="empty-box">条件に合う活動はありません。絞り込みを変えてお試しください。</div>';
+    return;
+  }
+  el.innerHTML = list.map(cardHTML).join("");
+}
+
+/* ---------- 要約（実日付で動的生成） ---------- */
+function updateUpcomingNote(todayWd){
+  var note = document.getElementById("upcomingNote");
+  if(!note) return;
+  var first = dateOf(curY(), curM(), 1);
+  if(isTodayInCurMonth()){
+    note.textContent = curM() + "月" + TODAY.d + "日（" + todayWd + "）以降の活動です。タップすると詳細が開きます。";
+  } else if(TODAY_DATE < first){
+    note.textContent = curM() + "月1日（" + wdLabel(curY(), curM(), 1) + "）以降の活動です。タップすると詳細が開きます。";
+  } else {
+    note.textContent = curM() + "月の活動です。タップすると詳細が開きます。";
+  }
+}
+
+function renderSummary(){
+  var el = document.getElementById("summaryContent");
+  if(!el) return;
+  var todayWd = WD[TODAY_DATE.getDay()];
+  var openEvents = CUR_EVENTS.filter(function(e){ return e.status === "open"; });
+  var freeEvents = CUR_EVENTS.filter(function(e){ return e.status === "free"; });
+  /* 内訳テキスト：同名活動は日付で区別する */
+  function shortList(list){
+    if(list.length === 0) return "現在はありません";
+    return list.map(function(ev){ return ev.title + "（" + ev.m + "/" + ev.day + "）"; }).join("、");
+  }
+  function freeList(list){
+    if(list.length === 0) return "現在はありません";
+    return list.map(function(ev){ return ev.m + "月" + ev.day + "日（" + wdLabel(ev.y, ev.m, ev.day) + "）「" + ev.title + "」（" + ev.venue + "）— 当日、会場へお越しください"; }).join("／");
+  }
+  var html = "";
+  html += '<p class="today-line">● 今日は ' + TODAY.m + "月" + TODAY.d + "日（" + todayWd + "）です</p>";
+  if(CUR_EVENTS.length === 0){
+    html += "<h2>" + curM() + "月の活動は準備中です</h2>";
+    html += "<p>" + curM() + "月の活動は、入り次第こちらに載せます。入力の締切は毎月20日です。</p>";
+    el.innerHTML = html;
+    updateUpcomingNote(todayWd);
+    return;
+  }
+  if(openEvents.length > 0 || freeEvents.length > 0){
+    html += "<h2><span class=\"fixed-line\">これから申し込める活動は <span class=\"num\">" + openEvents.length + "件</span></span><span class=\"fixed-line\">申込不要が <span class=\"num\">" + freeEvents.length + "件</span> あります</span></h2>";
+  } else {
+    html += "<h2>現在、申し込める活動はありません</h2>";
+  }
+  html += "<p>" + curM() + "月の活動は全部で" + CUR_EVENTS.length + "件。終わった活動と、対象の方が決まっている活動は、下の一覧で分けて表示しています。締切が近いものは赤い札でお知らせします。</p>";
+  html += '<div class="summary-grid">';
+  html += '<div class="sum-box open"><div class="big">' + openEvents.length + '件</div><div class="lbl">申込受付中</div><div class="note">' + esc(shortList(openEvents)) + "</div></div>";
+  html += '<div class="sum-box free"><div class="big">' + freeEvents.length + '件</div><div class="lbl">申込不要</div><div class="note">' + esc(freeList(freeEvents)) + "</div></div>";
+  html += "</div>";
+  /* 締切間近：受付中で締切があるもののうち最も近い締切（同日はまとめて表示） */
+  var withDl = openEvents.filter(function(e){ return !!e.deadline; });
+  if(withDl.length){
+    withDl.sort(function(a, b){ return deadlineDateObj(a) - deadlineDateObj(b); });
+    var nearest = withDl[0];
+    var nearestTime = deadlineDateObj(nearest).getTime();
+    var sameDl = withDl.filter(function(e){ return deadlineDateObj(e).getTime() === nearestTime; });
+    var left = daysUntil(nearest.deadline.y, nearest.deadline.m, nearest.deadline.d);
+    var dlWd = WD[deadlineDateObj(nearest).getDay()];
+    var names = sameDl.map(function(ev){ return ev.title + "（" + ev.m + "月" + ev.day + "日）"; }).join(" と ");
+    var leftText = left > 0 ? "あと" + left + "日" : (left === 0 ? "本日締切" : "");
+    html += '<div class="deadline-alert"><span class="dot">●</span> 締切間近：' + esc(names) + "は、申込締切が " + nearest.deadline.m + "月" + nearest.deadline.d + "日（" + dlWd + "）" + (leftText ? "・" + leftText : "") + "です。</div>";
+  }
+  el.innerHTML = html;
+  updateUpcomingNote(todayWd);
+}
+
+/* ---------- filters ---------- */
+var FILTERS = [
+  { key:"all", label:"すべて", test:function(){ return true; } },
+  { key:"open", label:"申込受付中", test:function(e){ return e.status==="open"; } },
+  { key:"free", label:"申込不要", test:function(e){ return e.status==="free"; } },
+  { key:"limited", label:"対象者限定", test:function(e){ return e.status==="limited"; } },
+  { key:"done", label:"終了・受付終了", test:function(e){ return e.status==="closed" || e.status==="ended"; } }
+];
+var activeFilter = "all";
+var activeOrg = "all";
+
+var chipsEl = document.getElementById("chips");
+var orgSelect = document.getElementById("orgSelect");
+
+function buildChips(){
+  chipsEl.innerHTML = "";
+  FILTERS.forEach(function(f){
+    var n = CUR_EVENTS.filter(f.test).length;
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip";
+    b.setAttribute("data-filter", f.key);
+    b.setAttribute("aria-pressed", f.key === activeFilter ? "true" : "false");
+    b.innerHTML = esc(f.label) + ' <span class="cnt">' + n + "件</span>";
+    b.addEventListener("click", function(){
+      activeFilter = f.key;
+      buildChips();
+      applyFilters();
+    });
+    chipsEl.appendChild(b);
+  });
+}
+
+function buildOrgSelect(){
+  orgSelect.innerHTML = "";
+  var allOpt = document.createElement("option");
+  allOpt.value = "all"; allOpt.textContent = "すべての主催者";
+  orgSelect.appendChild(allOpt);
+  Object.keys(ORGS).forEach(function(k){
+    var n = CUR_EVENTS.filter(function(e){ return e.org === k; }).length;
+    var o = document.createElement("option");
+    o.value = k; o.textContent = ORGS[k].name + "（" + n + "件）";
+    orgSelect.appendChild(o);
+  });
+  orgSelect.value = activeOrg;
+  if(orgSelect.value !== activeOrg){ activeOrg = "all"; orgSelect.value = "all"; }
+}
+orgSelect.addEventListener("change", function(){ activeOrg = orgSelect.value; applyFilters(); });
+
+var upcomingList = document.getElementById("upcomingList");
+var pastList = document.getElementById("pastList");
+var filteredList = document.getElementById("filteredList");
+var upcomingWrap = document.getElementById("upcomingWrap");
+var pastWrap = document.getElementById("pastWrap");
+var filteredWrap = document.getElementById("filteredWrap");
+var resultLine = document.getElementById("resultLine");
+
+function syncPastToggle(){
+  var pastCount = CUR_EVENTS.filter(function(e){ return e.status === "ended"; }).length;
+  var t = document.getElementById("pastToggle");
+  if(t) t.textContent = pastOpen ? "終了した活動を閉じる（" + pastCount + "件）△" : "終了した活動を見る（" + pastCount + "件）▽";
+}
+function applyFilters(){
+  if(CUR_EVENTS.length === 0){
+    upcomingWrap.classList.remove("hidden");
+    pastWrap.classList.add("hidden");
+    filteredWrap.classList.add("hidden");
+    upcomingList.innerHTML = '<div class="empty-box">' + curM() + "月の活動は、入り次第こちらに載せます。入力の締切は毎月20日です</div>";
+    resultLine.textContent = curMonthLabel() + "の活動は準備中です";
+    return;
+  }
+  var f = FILTERS.filter(function(x){ return x.key === activeFilter; })[0];
+  var isDefault = (activeFilter === "all" && activeOrg === "all");
+  if(isDefault){
+    upcomingWrap.classList.remove("hidden");
+    pastWrap.classList.remove("hidden");
+    filteredWrap.classList.add("hidden");
+    var upcoming = CUR_EVENTS.filter(function(e){ return e.status !== "ended"; });
+    var past = CUR_EVENTS.filter(function(e){ return e.status === "ended"; });
+    renderCards(upcomingList, upcoming);
+    renderCards(pastList, past);
+    resultLine.textContent = curM() + "月の活動 全" + CUR_EVENTS.length + "件（これから " + upcoming.length + "件／終了 " + past.length + "件）";
+    syncPastToggle();
+    bindCards();
+    return;
+  }
+  upcomingWrap.classList.add("hidden");
+  pastWrap.classList.add("hidden");
+  filteredWrap.classList.remove("hidden");
+  var list = CUR_EVENTS.filter(function(e){
+    return f.test(e) && (activeOrg === "all" || e.org === activeOrg);
+  });
+  renderCards(filteredList, list);
+  var orgName = activeOrg === "all" ? "すべての主催者" : ORGS[activeOrg].name;
+  resultLine.textContent = "「" + f.label + "」×「" + orgName + "」で " + list.length + "件";
+  bindCards();
+}
+
+var pastToggle = document.getElementById("pastToggle");
+var pastOpen = false;
+pastToggle.addEventListener("click", function(){
+  pastOpen = !pastOpen;
+  pastList.classList.toggle("hidden", !pastOpen);
+  pastToggle.setAttribute("aria-expanded", pastOpen ? "true" : "false");
+  syncPastToggle();
+});
+
+/* ---------- view tabs ---------- */
+var tabList = document.getElementById("tab-list");
+var tabCal = document.getElementById("tab-cal");
+var panelList = document.getElementById("panel-list");
+var panelCal = document.getElementById("panel-cal");
+function setView(cal){
+  tabList.setAttribute("aria-selected", cal ? "false" : "true");
+  tabCal.setAttribute("aria-selected", cal ? "true" : "false");
+  panelList.classList.toggle("hidden", cal);
+  panelCal.classList.toggle("hidden", !cal);
+}
+tabList.addEventListener("click", function(){ setView(false); });
+tabCal.addEventListener("click", function(){ setView(true); });
+
+/* ---------- calendar ---------- */
+var calGrid = document.getElementById("calGrid");
+var legendList = document.getElementById("legendList");
+var dayPanel = document.getElementById("dayPanel");
+var selectedDay = isTodayInCurMonth() ? TODAY.d : 1;
+
+function buildCalendar(){
+  calGrid.innerHTML = "";
+  ["日","月","火","水","木","金","土"].forEach(function(w, i){
+    var d = document.createElement("div");
+    d.className = "cal-dow" + (i===0 ? " w-sun" : (i===6 ? " w-sat" : ""));
+    d.textContent = w;
+    calGrid.appendChild(d);
+  });
+  var firstDow = new Date(curY(), curM() - 1, 1).getDay(); /* 0=日曜 */
+  var daysInMonth = new Date(curY(), curM(), 0).getDate();
+  var i, cell;
+  for(i = 0; i < firstDow; i++){
+    cell = document.createElement("div");
+    cell.className = "cal-cell blank";
+    cell.setAttribute("aria-hidden", "true");
+    calGrid.appendChild(cell);
+  }
+  for(var day = 1; day <= daysInMonth; day++){
+    (function(day){
+      var evs = CUR_EVENTS.filter(function(e){ return e.day === day; });
+      var isTodayCell = isTodayInCurMonth() && day === TODAY.d;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "cal-cell" + (isTodayCell ? " today" : "") + (day === selectedDay ? " selected" : "");
+      btn.setAttribute("data-day", String(day));
+      btn.setAttribute("aria-label", curM() + "月" + day + "日（" + wdLabel(curY(), curM(), day) + "）" + (evs.length ? "、活動 " + evs.length + "件" : "、活動なし"));
+      var inner = '<span class="n">' + day + (isTodayCell ? '<span class="tb">今日</span>' : "") + "</span>";
+      evs.forEach(function(ev){
+        var org = ORGS[ev.org];
+        var done = (ev.status === "ended" || ev.status === "closed") ? " done" : "";
+        inner += '<span class="cal-chip' + done + '" style="border-left-color:' + org.color + '">' + esc(ev.title) + "</span>";
+      });
+      if(evs.length){
+        inner += '<span class="cal-dots">' + evs.map(function(ev){ return '<i style="background:' + ORGS[ev.org].color + '"></i>'; }).join("") + "</span>";
+      }
+      btn.innerHTML = inner;
+      btn.addEventListener("click", function(){
+        selectedDay = day;
+        calGrid.querySelectorAll(".cal-cell").forEach(function(c){ c.classList.toggle("selected", c.getAttribute("data-day") === String(day)); });
+        renderDayPanel();
+      });
+      calGrid.appendChild(btn);
+    })(day);
+  }
+}
+
+Object.keys(ORGS).forEach(function(k){
+  var li = document.createElement("li");
+  li.innerHTML = '<span class="org-dot" style="background:' + ORGS[k].color + '"></span>' + esc(ORGS[k].name);
+  legendList.appendChild(li);
+});
+var grayLi = document.createElement("li");
+grayLi.innerHTML = '<span class="org-dot" style="background:#9A9184"></span>終了・受付終了は薄く表示';
+legendList.appendChild(grayLi);
+
+function renderDayPanel(){
+  var evs = CUR_EVENTS.filter(function(e){ return e.day === selectedDay; });
+  var head = curM() + "月" + selectedDay + "日（" + wdLabel(curY(), curM(), selectedDay) + "）" + ((isTodayInCurMonth() && selectedDay === TODAY.d) ? "・今日" : "") + "の活動";
+  if(evs.length === 0){
+    dayPanel.innerHTML = "<h3>" + esc(head) + '</h3><div class="empty-box">この日の活動はありません。</div>';
+    return;
+  }
+  dayPanel.innerHTML = "<h3>" + esc(head) + "（" + evs.length + '件）</h3><div class="list">' + evs.map(cardHTML).join("") + "</div>";
+  bindCards();
+}
+
+/* ---------- detail sheet ---------- */
+var overlay = document.getElementById("overlay");
+var sheet = document.getElementById("sheet");
+var sheetBody = document.getElementById("sheetBody");
+var sheetClose = document.getElementById("sheetClose");
+var lastFocus = null;
+
+function sheetHTML(ev){
+  var org = ORGS[ev.org];
+  var dateStr = ev.y + "年" + ev.m + "月" + ev.day + "日（" + wdLabel(ev.y, ev.m, ev.day) + "）";
+  var html = "";
+  html += '<p class="org-line"><span class="org-pill"><span class="org-dot" style="background:' + org.color + '"></span>' + esc(org.name) + '</span>';
+  html += '<span class="status-pill st-' + ev.status + '">' + STATUS_LABEL[ev.status] + "</span></p>";
+  html += '<h2 id="sheetTitle">' + esc(ev.title) + "</h2>";
+  html += '<p class="desc">' + esc(ev.desc) + "</p>";
+  html += '<table class="detail-table">';
+  html += "<tr><th>日時</th><td>" + esc(dateStr) + "<br />" + esc(ev.time) + "</td></tr>";
+  html += "<tr><th>会場</th><td>" + esc(ev.venue) + "</td></tr>";
+  if(ev.target) html += "<tr><th>対象</th><td>" + esc(ev.target) + "</td></tr>";
+  if(ev.fee) html += "<tr><th>参加費</th><td>" + esc(ev.fee) + "</td></tr>";
+  if(ev.capacity) html += "<tr><th>定員</th><td>" + esc(ev.capacity) + "</td></tr>";
+  if(ev.belongings) html += "<tr><th>持ち物</th><td>" + esc(ev.belongings) + "</td></tr>";
+  if(ev.deadline){
+    var left = daysUntil(ev.deadline.y, ev.deadline.m, ev.deadline.d);
+    var dlNote = ev.status === "open" && left > 0 ? "（あと" + left + "日）" : (ev.status === "open" && left === 0 ? "（本日締切）" : "");
+    html += "<tr><th>申込締切</th><td>" + esc(deadlineText(ev) + dlNote) + "</td></tr>";
+  }
+  html += "</table>";
+
+  /* ボタン統一ルール */
+  if(ev.status === "open" && ev.apply === "page" && ev.page){
+    html += '<a class="btn-primary" href="' + esc(ev.page) + '" target="_blank" rel="noopener">申し込みはこちら →</a>';
+  } else if(ev.status === "open" && ev.apply === "phone"){
+    html += '<a class="btn-phone" href="' + TEL_URL + '">📞 電話で申し込む　042-316-9405</a>';
+    html += '<p class="note-box" style="margin-top:12px">受付時間：月〜金 9:00〜17:00（土日休み）。体験参加をご希望の方も、まずはお電話ください。</p>';
+  } else if(ev.status === "open" && ev.apply === "list"){
+    html += '<a class="btn-secondary" href="' + EVENT_LIST_URL + '" target="_blank" rel="noopener">HPのイベント一覧を見る →</a>';
+    html += '<p class="note-box" style="margin-top:12px">この活動には専用のイベントページがありません。詳しくはイベント一覧をご覧ください。お問い合わせはお電話（042-316-9405）でもどうぞ。</p>';
+  } else if(ev.status === "limited"){
+    var who = ev.target ? ev.target : "対象の方";
+    html += '<div class="status-banner">この活動は' + esc(who) + "のみご参加いただけます</div>";
+    html += '<p class="note-box">一般の申し込みは受け付けていません。対象の方には別途ご案内しています。</p>';
+  } else if(ev.status === "free"){
+    html += '<div class="status-banner">申込は不要です。当日、会場へお越しください</div>';
+  } else if(ev.status === "closed"){
+    html += '<div class="status-banner">受付は終了しました</div>';
+    if(ev.page) html += '<a class="btn-secondary" href="' + esc(ev.page) + '" target="_blank" rel="noopener">イベントページで内容を見る →</a>';
+  } else if(ev.status === "ended"){
+    html += '<div class="status-banner">この活動は終了しました</div>';
+    if(ev.page) html += '<a class="btn-secondary" href="' + esc(ev.page) + '" target="_blank" rel="noopener">イベントページで内容を見る →</a>';
+  }
+  return html;
+}
+
+function openSheet(id){
+  var ev = CUR_EVENTS.filter(function(e){ return e.id === id; })[0];
+  if(!ev) return;
+  lastFocus = document.activeElement;
+  sheetBody.innerHTML = sheetHTML(ev);
+  overlay.classList.add("show");
+  sheet.classList.add("show");
+  sheet.setAttribute("aria-hidden", "false");
+  sheet.scrollTop = 0;
+  sheetClose.focus();
+  document.body.style.overflow = "hidden";
+}
+function closeSheet(){
+  overlay.classList.remove("show");
+  sheet.classList.remove("show");
+  sheet.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+}
+sheetClose.addEventListener("click", closeSheet);
+overlay.addEventListener("click", closeSheet);
+document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeSheet(); });
+
+function bindCards(){
+  document.querySelectorAll("[data-open]").forEach(function(el){
+    if(el.getAttribute("data-bound") === "1") return;
+    el.setAttribute("data-bound", "1");
+    el.addEventListener("click", function(){ openSheet(parseInt(el.getAttribute("data-open"), 10)); });
+  });
+}
+
+/* ---------- month navigation ---------- */
+var prevMonthBtn = document.getElementById("prevMonthBtn");
+var nextMonthBtn = document.getElementById("nextMonthBtn");
+function updateMonthUI(){
+  document.getElementById("monthTitle").textContent = curMonthLabel();
+  document.getElementById("calMonthTitle").textContent = curMonthLabel();
+  document.getElementById("bandMonth").textContent = curY() + "年" + curM() + "月号";
+  document.title = "組合員活動カレンダー｜" + curY() + "年" + curM() + "月｜自然派くらぶ";
+  calGrid.setAttribute("aria-label", curMonthLabel() + "のカレンダー");
+  document.getElementById("upcomingHead").textContent = isTodayInCurMonth() ? "今日と、これからの活動" : (curY() + "年" + curM() + "月の活動");
+  prevMonthBtn.disabled = (curIdx === 0);
+  nextMonthBtn.disabled = (curIdx === MONTHS.length - 1);
+}
+function setMonth(idx){
+  if(idx < 0 || idx >= MONTHS.length){
+    updateMonthUI();
+    return;
+  }
+  curIdx = idx;
+  CUR_EVENTS = EVENTS_BY_KEY[monthKey(curY(), curM())] || [];
+  selectedDay = isTodayInCurMonth() ? TODAY.d : 1;
+  updateMonthUI();
+  buildChips();
+  buildOrgSelect();
+  renderSummary();
+  buildCalendar();
+  renderDayPanel();
+  applyFilters();
+}
+prevMonthBtn.addEventListener("click", function(){ setMonth(curIdx - 1); });
+nextMonthBtn.addEventListener("click", function(){ setMonth(curIdx + 1); });
+
+/* 左右スワイプで月を移動（縦スクロールとタップは妨げない） */
+var touchStartX = null;
+var touchStartY = null;
+var wrapEl = document.querySelector(".wrap");
+wrapEl.addEventListener("touchstart", function(e){
+  if(e.changedTouches.length === 1){
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+  }
+}, { passive:true });
+wrapEl.addEventListener("touchend", function(e){
+  if(touchStartX === null) return;
+  var dx = e.changedTouches[0].clientX - touchStartX;
+  var dy = e.changedTouches[0].clientY - touchStartY;
+  touchStartX = null;
+  touchStartY = null;
+  if(Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+  if(dx < 0) setMonth(curIdx + 1);
+  else setMonth(curIdx - 1);
+}, { passive:true });
+
+/* ---------- init ---------- */
+updateMonthUI();
+buildChips();
+buildOrgSelect();
+renderSummary();
+buildCalendar();
+renderDayPanel();
+applyFilters();
+</script>
+</body>
+</html>
