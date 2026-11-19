@@ -496,7 +496,7 @@ var EVENTS = [
   { id:11, y:2026, m:11, day:18, title:"地区総代会議", org:"club", time:"10:00〜13:00（予定）", venue:"ソレイユさがみ", status:"limited",
     target:"総代の方", page:"https://www.shizenha-club.com/news_post/soudaikaigi/", apply:"none",
     desc:"地区総代会議です。総代の方が対象です。" },
-  { id:12, y:2026, m:11, day:18, title:"なちゅらるきっちんず", org:"kitchen", time:"10:00〜14:30", venue:"新センター", status:"limited",
+  { id:12, y:2026, m:11, day:11, title:"なちゅらるきっちんず", org:"kitchen", time:"10:00〜14:30", venue:"新センター", status:"limited",
     target:"メンバーの方", page:null, apply:"none",
     desc:"商品の調理・試食・評価を行う活動です。メンバーの方が対象です。" },
   { id:13, y:2026, m:11, day:19, title:"お茶べり会　小豆カイロを作ってみませんか？", org:"hachioji", time:"10:00〜13:00", venue:"新センター 組合員室", status:"closed",
@@ -512,9 +512,6 @@ var EVENTS = [
     desc:"地区総代会議です。総代の方が対象です。" },
   { id:16, y:2026, m:11, day:24, title:"畑活動", org:"nougyou", time:"時間はその都度変わります", venue:"小比企の畑（八王子市小比企町）", status:"open", page:null, apply:"phone",
     desc:"小比企の畑で作業を行う活動です。開始時間は天候や季節でその都度変わります。初めての方はまずお電話でお問い合わせください。詳細はそのときにお伝えします。" },
-  { id:17, y:2026, m:11, day:25, title:"なちゅらるきっちんず", org:"kitchen", time:"10:00〜14:30", venue:"新センター", status:"limited",
-    target:"メンバーの方", page:null, apply:"none",
-    desc:"商品の調理・試食・評価を行う活動です。メンバーの方が対象です。" },
   { id:18, y:2026, m:11, day:27, title:"お米工場へ見学に行こう！", org:"kome", time:"10:00〜13:00", venue:"集合：中央線 西八王子駅改札（見学先：マゴメ工場）", status:"open",
     deadline:{ y:2026, m:11, d:13 }, page:"https://www.shizenha-club.com/news_post/santyokumai/", apply:"page",
     fee:"2,500円（ランチ代・当日集金）", capacity:"15名（多数の場合は抽選）",
@@ -528,7 +525,7 @@ var EVENTS = [
 EVENTS.forEach(function(ev){
   if(ev.id === 19){ ev.kind = "free"; }
   else if(ev.target && (ev.target.indexOf("総代") !== -1 || ev.target.indexOf("メンバー") !== -1)){ ev.kind = "limited"; }
-  else if(ev.id === 10 || ev.id === 11 || ev.id === 12 || ev.id === 15 || ev.id === 17){ ev.kind = "limited"; }
+  else if(ev.id === 10 || ev.id === 11 || ev.id === 12 || ev.id === 15){ ev.kind = "limited"; }
   else { ev.kind = "open"; }
 });
 refreshStatuses();
